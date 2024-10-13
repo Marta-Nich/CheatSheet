@@ -1,0 +1,127 @@
+Comandos Básicos
+  Configuración Inicial
+    git config --global user.name "Tu Nombre"
+    git config --global user.email "tuemail@example.com"
+
+  Iniciar un nuevo repositorio
+    git init
+
+  Clonar un repositorio
+    git clone <URL del repositorio>
+
+  Ver el estado del repositorio
+    git status
+
+  Añadir cambios a la zona de staging
+    git add <nombre del archivo>
+    git add .  # Añadir todos los cambios
+
+  Realizar un commit
+    git commit -m "Mensaje del commit"
+
+Comandos de Ramas
+  Listar ramas
+    git branch
+
+  Crear una nueva rama
+    git branch <nombre de la rama>
+
+  Cambiar de rama
+    git checkout <nombre de la rama>
+
+  Crear y cambiar a una nueva rama
+    git checkout -b <nombre de la nueva rama>
+
+  Borrar una rama local
+    git branch -d <nombre de la rama>
+
+Comandos de Merge y Conflictos
+  Hacer merge de una rama
+    git merge <nombre de la rama>
+
+  Resolver conflictos después de un merge
+    1- Editar los archivos en conflicto.
+    2- Añadir los cambios:
+      git add <archivo en conflicto>
+    3- Hacer commit:
+      git commit -m "Resuelto conflicto"
+
+Comandos Remotos
+  Añadir un remoto
+    git remote add origin <URL del repositorio>
+
+  Subir cambios al repositorio remoto
+    git push origin <nombre de la rama>
+
+  Bajar cambios del repositorio remoto
+    git pull origin <nombre de la rama>
+  
+  Listar remotos
+    git remote -v
+
+  Eliminar un remoto
+    git remote remove <nombre del remoto>
+
+  Añadir una URL de git como alias
+    git remote add [alias] [URL]
+
+  Recupera todas las ramas de ese control remoto Git
+    git fetch
+
+  Fusionar una rama remota con su rama actual para actualizarla
+    git merge
+
+Comandos Avanzados
+  Ver el historial de commits
+    git log
+    git log --oneline  # Para un resumen
+    git log --graph --all  # Para ver todas las ramas
+    git log branchB..branchA # Muestra los commits en la branchA que no estan en la branchB
+    git log --follow # Muestra los commits que cambiaron el archivo incluyendo el nombre
+    git diff branchB...branchA # Muestra la diferencia de que esta en la branchA que no esta en la branchB
+    git show # Muestra cualquier objeto en Git en formato legible para humanos
+
+  Revertir un commit
+    git revert <ID del commit>
+
+  Resetear cambios (deshacer commits)
+    git reset --soft <ID del commit>  # Mantiene los cambios en staging
+    git reset --hard <ID del commit>  # Deshace todos los cambios
+
+  Aplicar cualquier confirmación de la rama actual antes de uno especificado 
+    git rebase
+
+  Stash (guardar cambios no confirmados)
+    git stash  # Guardar cambios
+    git stash pop  # Recuperar cambios
+    git stash list
+    git stash drop
+
+  Ver diferencias
+    git diff  # Diferencias no staged
+    git diff --staged  # Diferencias staged
+
+  Etiquetas (tags)
+    Crear una etiqueta:
+      git tag -a v0.1 -m "Descripción de la versión"
+    Subir etiquetas al remoto:
+      git push origin v0.1
+
+Seguimiento de cambios en el Path
+  Eliminar el archivo del proyecto 
+    git rm
+
+  Cambiar una ruta de archivo existente 
+    git mv [existing-path][new-path]
+
+  Mostrar todos los registros de confirmación con indicación de las rutas que se movieron
+    git log --stat -M
+
+Ignorar patterns
+  Guardar un archivo con los patrones deseados como .gitignore con coincidencias de cadenas directas o comodiens
+    logs/
+    *.notes
+    patterns*/
+
+  Patrón de ignorancia de todo el sistema para todos los repositorios locales
+    git config --global core.execludesfile
